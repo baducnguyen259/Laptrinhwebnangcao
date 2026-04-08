@@ -12,7 +12,7 @@ Dự án môn học xây dựng website tìm kiếm việc làm fullstack với 
 | --- | ------------------- | --------------- | ----------- |
 | 1   | `[Nguyễn Bá Đức]`   | `[23810310420]` | Nhóm trưởng |
 | 2   | `[Nguyễn Văn Đại]`  | `[23810310422]` | Thành viên  |
-| 3   | `[Nguyễn Ngọc sơn]` | `[23810310424]` | Thành viên  |
+| 3   | `[Nguyễn Ngọc Sơn]` | `[23810310424]` | Thành viên  |
 
 ---
 
@@ -57,79 +57,53 @@ Trang chủ, Đăng nhập/Đăng ký, Quên mật khẩu, Admin Dashboard, Duy�
 ## 📁 Cấu trúc thư mục
 
 ```
-WEB-VIECLAMPHP/
-├── index.php                   # Entry point – redirect đến trang chủ
-├── config.php                  # Cấu hình BASE_URL, BASE_PATH
+WEBKIEMTHU/
+├── index.php                       # Entry point – điều hướng chính
+├── test_analyze.php                # Script kiểm thử phân tích
+├── database.sql                    # 💾 File dump cơ sở dữ liệu
+├── db.opt                          # Cấu hình tuỳ chọn database
+├── composer.json                   # Khai báo dependencies PHP
+├── composer.lock                   # Khóa phiên bản dependencies
+├── .gitignore                      # Bỏ qua file khi commit
+├── .editorconfig                   # Chuẩn hoá định dạng code editor
 │
-├── includes/                   # Shared components
-│   ├── connect.php             # Kết nối MySQLi đến DB vieclamphp
-│   ├── header.php              # Header + Navbar chung (Bootstrap)
-│   ├── footer.php              # Footer chung
-│   └── pagination.php          # Component phân trang
+├── api/                            # 🔌 REST API Backend (PHP thuần)
+│   ├── .htaccess                   # Rewrite rules cho Apache
+│   ├── index.php                   # Entry point API
+│   ├── auth.php                    # API xác thực (đăng nhập/đăng ký/token)
+│   ├── jobs.php                    # API tin tuyển dụng (CRUD + lọc)
+│   ├── applications.php            # API đơn ứng tuyển
+│   ├── candidates.php              # API thông tin ứng viên
+│   ├── analyze.php                 # API phân tích / thống kê dữ liệu
+│   ├── admin_jobs.php              # API quản lý tin tuyển dụng (Admin)
+│   ├── admin_applications.php      # API quản lý đơn ứng tuyển (Admin)
+│   ├── admin_users.php             # API quản lý người dùng (Admin)
+│   └── admin_reports.php           # API báo cáo & thống kê (Admin)
 │
-├── home/                       # Trang công khai
-│   ├── trangchu.php            # Trang chủ – banner, tin nổi bật, thống kê
-│   ├── vechungtoi.php          # Giới thiệu về nền tảng
-│   └── lienhe.php              # Trang liên hệ
+├── middleware/                     # 🛡 Middleware xác thực & bảo mật
+│   ├── auth.php                    # Kiểm tra JWT / session người dùng
+│   ├── admin.php                   # Kiểm tra quyền quản trị viên
+│   └── cors.php                    # Xử lý CORS cho API
 │
-├── auth/                       # Xác thực người dùng
-│   ├── dangnhap.php            # Đăng nhập (ứng viên + nhà tuyển dụng)
-│   ├── dangki.php              # Đăng ký tài khoản mới
-│   ├── quenmatkhau.php         # Quên mật khẩu (gửi OTP qua email)
-│   └── dangxuat.php            # Đăng xuất
+├── public/                         # 🌐 Giao diện Frontend (PHP render)
+│   ├── js/                         # JavaScript phía client
+│   ├── dangnhap.php                # Trang đăng nhập ứng viên / NTD
+│   ├── dangky.php                  # Trang đăng ký tài khoản
+│   ├── timkiem.php                 # Trang tìm kiếm việc làm
+│   ├── chitietcongviec.php         # Trang chi tiết tin tuyển dụng
+│   ├── dangtin.php                 # Trang đăng tin tuyển dụng (NTD)
+│   ├── quanlytindang.php           # Trang quản lý tin đã đăng (NTD)
+│   ├── suatin.php                  # Trang chỉnh sửa tin tuyển dụng
+│   ├── xemungvien.php              # Trang xem danh sách ứng viên (NTD)
+│   ├── trangthai.php               # Trang theo dõi trạng thái ứng tuyển
+│   ├── utthanhcong.php             # Trang thông báo ứng tuyển thành công
+│   ├── admin_dangnhap.php          # Trang đăng nhập quản trị viên
+│   └── admin.php                   # Trang Dashboard quản trị (Admin Panel)
 │
-├── candidate/                  # Module Ứng viên
-│   ├── timviec.php             # Danh sách tin tuyển dụng (lọc, tìm kiếm)
-│   ├── chitiettintd.php        # Chi tiết tin tuyển dụng
-│   ├── nopdon.php              # Form nộp đơn ứng tuyển (upload CV)
-│   ├── hosoca.php              # Quản lý hồ sơ cá nhân
-│   ├── dontda_nop.php          # Lịch sử đơn đã nộp
-│   └── luuviec.php             # Danh sách việc làm đã lưu
-│
-├── employer/                   # Module Nhà tuyển dụng
-│   ├── dangtintd.php           # Đăng tin tuyển dụng mới
-│   ├── quantin.php             # Danh sách tin đã đăng
-│   ├── edittin.php             # Chỉnh sửa tin tuyển dụng
-│   ├── deletetin.php           # Xóa tin tuyển dụng
-│   ├── danhsachungvien.php     # Xem danh sách ứng viên theo tin
-│   └── chitietungvien.php      # Chi tiết hồ sơ ứng viên + tải CV
-│
-├── blog/                       # Module tin tức / hướng dẫn
-│   ├── baiviet.php             # Danh sách bài viết
-│   └── chitietbaiviet.php      # Chi tiết bài viết
-│
-├── admin/                      # 🔒 Trang quản trị (Admin Panel)
-│   ├── index.php               # Redirect admin
-│   ├── trangchu.php            # Dashboard – thống kê tổng quan
-│   ├── dangnhap.php            # Đăng nhập admin
-│   │
-│   ├── duyettin.php            # Duyệt / từ chối tin tuyển dụng
-│   ├── quanlitintd.php         # CRUD tin tuyển dụng
-│   │
-│   ├── quanliungvien.php       # Quản lý tài khoản ứng viên
-│   ├── quanlinhatd.php         # Quản lý tài khoản nhà tuyển dụng
-│   │
-│   ├── quanlidanhmuc.php       # Quản lý danh mục ngành nghề
-│   ├── quanlibaidang.php       # Quản lý bài viết blog
-│   ├── edit_baidang.php        # Sửa bài viết
-│   ├── delete_baidang.php      # Xóa bài viết
-│   │
-│   ├── thongke.php             # Thống kê tổng hợp (biểu đồ)
-│   └── uploads/                # Thư mục lưu ảnh/file upload
-│
-├── PHPMailer-master/           # Thư viện gửi email (SMTP)
-├── assets/                     # Tài nguyên tĩnh
-│   ├── bootstrap/              # Bootstrap 5 CSS/JS
-│   ├── css/                    # Custom CSS
-│   ├── js/                     # JavaScript
-│   ├── fonts/                  # FontAwesome, icon fonts
-│   └── img/                    # Ảnh giao diện
-│
-├── uploads/                    # 📂 File CV ứng viên tải lên (PDF/DOCX)
-├── images/                     # Ảnh tĩnh (logo, banner)
-├── documents/                  # 📄 Tài liệu SRS
-├── vieclamphp.sql              # 💾 File dump cơ sở dữ liệu
-└── import_sql.php              # Script tự động import SQL
+├── config/                         # ⚙️ Cấu hình hệ thống
+├── cache/                          # 🗃 Bộ nhớ đệm (cache)
+├── logs/                           # 📋 File log hệ thống
+└── vendor/                         # 📦 Thư viện bên thứ ba (Composer)
 ```
 
 ---
@@ -281,37 +255,39 @@ WEB-VIECLAMPHP/
 
 ```bash
 cd C:\xampp\htdocs
-git clone https://github.com/baducnguyen259/Laptrinhwebnangcao.git
+git clone https://github.com/[username]/[repo-name].git WEB-VIECLAMPHP
 ```
 
 **2. Khởi động XAMPP → Bật Apache và MySQL**
 
 **3. Tạo database bằng một trong hai cách:**
 
-> **Cách 1 – phpMyAdmin:** Truy cập `http://localhost/phpmyadmin`, tạo database `vieclamphp` (charset `utf8_general_ci`), sau đó Import file `vieclamphp.sql`
+> **Cách 1 – phpMyAdmin:** Truy cập `http://localhost/phpmyadmin`, tạo database `webkiemthu` (charset `utf8_general_ci`), sau đó Import file `database.sql`
 
 > **Cách 2 – Script tự động:** Truy cập `http://localhost/WEB-VIECLAMPHP/import_sql.php`
 
-**4. Kiểm tra kết nối DB:** Mở `includes/connect.php`, đảm bảo thông tin phù hợp:
+**4. Kiểm tra kết nối DB:** Mở thư mục `config/`, đảm bảo thông tin phù hợp:
 
 ```php
-$con = mysqli_connect("127.0.0.1", "root", "", "vieclamphp");
+$con = mysqli_connect("127.0.0.1", "root", "", "webkiemthu");
 ```
 
 **5. Truy cập website:**
 
-| Trang                   | URL                                         |
-| ----------------------- | ------------------------------------------- |
-| 🌐 Trang chủ (Ứng viên) | `http://localhost/webkiemthu/index.php`     |
-| 🏢 Trang Nhà tuyển dụng | `http://localhost/WEB-VIECLAMPHP/employer/` |
-| 🔐 Trang quản trị       | `http://localhost/WEB-VIECLAMPHP/admin/`    |
+| Trang                      | URL                                              |
+| -------------------------- | ------------------------------------------------ |
+| 🌐 Trang tìm kiếm việc làm | `http://localhost/WEBKIEMTHU/public/timkiem.php` |
+| 🏢 Trang đăng tin (NTD)    | `http://localhost/WEBKIEMTHU/public/dangtin.php` |
+| 🔐 Trang quản trị (Admin)  | `http://localhost/WEBKIEMTHU/public/admin.php`   |
+| 🔌 API endpoint            | `http://localhost/WEBKIEMTHU/api/`               |
 
 ### Tài khoản mặc định
 
-| Vai trò  | Tài khoản          | Mật khẩu |
-| -------- | ------------------ | -------- |
-| Admin    | ``                 | ``       |
-| Ứng viên | `test01@gmail.com` | `123456` |
+| Vai trò        | Tài khoản          | Mật khẩu   |
+| -------------- | ------------------ | ---------- |
+| Admin          | ``                 | `admin123` |
+| Nhà tuyển dụng | `congty01`         | `123456`   |
+| Ứng viên       | `test01@gmail.com` | `123456`   |
 
 ### Cấu hình Email (tùy chọn)
 
