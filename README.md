@@ -1,6 +1,6 @@
 # 💼 Website Tìm Kiếm Việc Làm
 
-Dự án môn học xây dựng website tìm kiếm việc làm fullstack với PHP thuần, triển khai trên XAMPP. Hệ thống cung cấp đầy đủ chức năng cho **Ứng viên** (tìm việc, nộp CV, quản lý hồ sơ), **Nhà tuyển dụng** (đăng tin, quản lý ứng tuyển) và **Quản trị viên** (duyệt tin, quản lý người dùng, thống kê).
+Dự án môn học xây dựng website tìm kiếm việc làm fullstack với PHP thuần, triển khai trên XAMPP. Hệ thống cung cấp đầy đủ chức năng cho **Ứng viên** (tìm việc, nộp CV, quản lý hồ sơ,đăng tin, quản lý ứng tuyển) và **Quản trị viên** (duyệt tin, quản lý người dùng, thống kê).
 
 ---
 
@@ -45,9 +45,9 @@ Trang chủ, Đăng nhập/Đăng ký, Quên mật khẩu, Admin Dashboard, Duy�
 | Thành phần  | Công nghệ               | Lý do lựa chọn                                                                                                                                   |
 | ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Ngôn ngữ    | PHP 8.x (thuần)         | Dễ triển khai, cú pháp trực quan, giúp sinh viên nắm vững kiến thức cốt lõi về backend, session và luồng xử lý web động trước khi học Framework. |
-| Database    | MariaDB 10.4            | Hệ quản trị CSDL quan hệ mạnh mẽ, mã nguồn mở, tích hợp sẵn trong XAMPP, hỗ trợ truy vấn SQL chuẩn và tối ưu tốt với PHP.                        |
+| Database    | MySql                   | Hệ quản trị CSDL quan hệ mạnh mẽ, mã nguồn mở, tích hợp sẵn trong XAMPP, hỗ trợ truy vấn SQL chuẩn và tối ưu tốt với PHP.                        |
 | Web Server  | Apache (XAMPP)          | Môi trường phát triển cục bộ trọn gói, dễ cài đặt và chạy ngay trên Windows mà không cần cấu hình service rời rạc.                               |
-| Frontend    | HTML5, JS, Bootstrap 5  | Chuẩn web hiện đại, hỗ trợ dàn trang Grid/Flexbox và responsive UI trên di động nhanh chóng.                                                     |
+| Frontend    | HTML5, JS, taiwinCSS    | Chuẩn web hiện đại, hỗ trợ dàn trang Grid/Flexbox và responsive UI trên di động nhanh chóng.                                                     |
 | Font & Icon | Montserrat, FontAwesome | Phông chữ hiện đại cùng bộ icon đầy đủ giúp giao diện chuyên nghiệp, thân thiện và trải nghiệm người dùng tốt hơn.                               |
 | Email       | PHPMailer (SMTP)        | Thư viện gửi email ổn định qua Gmail SMTP, khắc phục giới hạn của hàm `mail()` mặc định trên localhost.                                          |
 | Upload CV   | PHP File Upload         | Cho phép ứng viên tải lên CV định dạng PDF/DOCX, kiểm tra loại file và giới hạn dung lượng phía server.                                          |
@@ -117,7 +117,7 @@ WEBKIEMTHU/
 ```
 ┌──────────────────────┐     ┌──────────────────────┐
 │      tbl_admin       │     │    tbl_ungvien       │
-│   (Quản trị viên)    │     │     (Ứng viên)        │
+│   (Quản trị viên)    │     │     (Ứng viên)       │
 ├──────────────────────┤     ├──────────────────────┤
 │ id (PK)              │     │ id (PK)              │
 │ hoten                │     │ hoten                │
@@ -133,7 +133,7 @@ WEBKIEMTHU/
 
 ┌──────────────────────┐     ┌──────────────────────┐
 │    tbl_nhatuyendung  │     │    tbl_danhmuc       │
-│  (Nhà tuyển dụng)    │     │  (Ngành nghề/Lĩnh vực│
+│  (Nhà tuyển dụng)    │     │ (Ngành nghề/Lĩnh vực)│
 ├──────────────────────┤     ├──────────────────────┤
 │ id (PK)              │     │ id (PK)              │
 │ tencongty            │     │ tenloai              │
