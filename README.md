@@ -255,16 +255,16 @@ WEBKIEMTHU/
 
 ```bash
 cd C:\xampp\htdocs
-git clone https://github.com/[username]/[repo-name].git WEB-VIECLAMPHP
+git clone https://github.com/baducnguyen259/Laptrinhwebnangcao.git
 ```
 
 **2. Khởi động XAMPP → Bật Apache và MySQL**
 
 **3. Tạo database bằng một trong hai cách:**
 
-> **Cách 1 – phpMyAdmin:** Truy cập `http://localhost/phpmyadmin`, tạo database `webkiemthu` (charset `utf8_general_ci`), sau đó Import file `database.sql`
+> **Cách 1 – phpMyAdmin:** Truy cập `http://localhost/phpmyadmin`, tạo database `webkiemthu` (charset `utf8_unicode_ci`), sau đó Import file `database.sql`
 
-> **Cách 2 – Script tự động:** Truy cập `http://localhost/WEB-VIECLAMPHP/import_sql.php`
+> **Cách 2 – Script tự động:** Truy cập `http://localhost/import_sql.php`
 
 **4. Kiểm tra kết nối DB:** Mở thư mục `config/`, đảm bảo thông tin phù hợp:
 
@@ -283,11 +283,11 @@ $con = mysqli_connect("127.0.0.1", "root", "", "webkiemthu");
 
 ### Tài khoản mặc định
 
-| Vai trò        | Tài khoản          | Mật khẩu   |
-| -------------- | ------------------ | ---------- |
-| Admin          | ``                 | `admin123` |
-| Nhà tuyển dụng | `congty01`         | `123456`   |
-| Ứng viên       | `test01@gmail.com` | `123456`   |
+| Vai trò        | Tài khoản             | Mật khẩu   |
+| -------------- | --------------------- | ---------- |
+| Admin          | `admintest@gmail.com` | `12345678` |
+| Nhà tuyển dụng | ``                    | `123456`   |
+| Ứng viên       | `test01@gmail.com`    | `123456`   |
 
 ### Cấu hình Email (tùy chọn)
 
