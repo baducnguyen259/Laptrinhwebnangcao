@@ -1,0 +1,46 @@
+<?php
+declare(strict_types=1);
+
+return [
+    'GET' => [
+        '/' => 'PageController@home',
+        '/dangnhap' => 'PageController@login',
+        '/dangnhap.php' => 'PageController@login',
+        '/login' => 'PageController@login',
+        '/dangky' => 'PageController@register',
+        '/dangky.php' => 'PageController@register',
+        '/register' => 'PageController@register',
+        '/timkiem' => 'PageController@jobs',
+        '/timkiem.php' => 'PageController@jobs',
+        '/chitietcongviec' => 'PageController@jobDetail',
+        '/chitietcongviec.php' => 'PageController@jobDetail',
+        '/dangtin' => 'PageController@postJob',
+        '/dangtin.php' => 'PageController@postJob',
+        '/quanlytindang' => 'PageController@manageJobs',
+        '/quanlytindang.php' => 'PageController@manageJobs',
+        '/suatin' => 'PageController@editJob',
+        '/suatin.php' => 'PageController@editJob',
+        '/trangthai' => 'PageController@applicationStatus',
+        '/trangthai.php' => 'PageController@applicationStatus',
+        '/utthanhcong' => 'PageController@applySuccess',
+        '/utthanhcong.php' => 'PageController@applySuccess',
+        '/xemungvien' => 'PageController@candidates',
+        '/xemungvien.php' => 'PageController@candidates',
+        '/admin' => 'PageController@adminDashboard',
+        '/admin.php' => 'PageController@adminDashboard',
+        '/admin/dangnhap' => 'PageController@adminLogin',
+        '/admin-dangnhap' => 'PageController@adminLogin',
+        '/admin_dangnhap' => 'PageController@adminLogin',
+        '/admin_dangnhap.php' => 'PageController@adminLogin',
+    ],
+    'POST' => [
+        '/dangnhap' => 'PageController@login',
+        '/dangnhap.php' => 'PageController@login',
+        '/dangky' => 'PageController@register',
+        '/dangky.php' => 'PageController@register',
+        '/admin/dangnhap' => 'PageController@adminLogin',
+        '/admin_dangnhap' => 'PageController@adminLogin',
+        '/admin_dangnhap.php' => 'PageController@adminLogin',
+    ],
+];
+
