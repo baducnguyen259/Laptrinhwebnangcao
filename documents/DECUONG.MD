@@ -34,7 +34,6 @@ Website tìm kiếm việc làm là nền tảng kết nối **Ứng viên** (ng
 | F04 | Đăng ký tài khoản           | SRS_DANG_KY.md           |
 | F05 | Đăng nhập                   | SRS_DANG_NHAP.md         |
 | F06 | Đăng xuất                   | SRS_DANG_XUAT.md         |
-| F07 | Quên mật khẩu               | SRS_QUEN_MAT_KHAU.md     |
 
 ### 2.2 Chức năng Ứng viên
 
