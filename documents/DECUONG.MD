@@ -1,76 +1,127 @@
- ĐỀ CƯƠNG ĐỀ TÀI Website Tìm Kiếm Việc Làm
+# ĐỀ CƯƠNG CHỨC NĂNG — Website Tìm Kiếm Việc Làm
 
-1. Mục tiêu đề tài
-- Xây dựng hệ thống website hỗ trợ tìm kiếm việc làm trực tuyến  
-- Kết nối giữa nhà tuyển dụng và ứng viên  
-- Cho phép đăng tin tuyển dụng và ứng tuyển online  
-- Quản lý hồ sơ ứng viên và thông tin công việc  
-2. Chức năng hệ thống
- 2.1. Admin
-Quản lý người dùng
-- Thêm / sửa / xóa tài khoản  
-- Phân quyền (Admin / Nhà tuyển dụng / Ứng viên)
- Quản lý công việc
-- Duyệt bài đăng tuyển dụng  
-- Chỉnh sửa nội dung công việc  
-- Xóa bài vi phạm  
-Quản lý danh mục
-- Ngành nghề  
-- Địa điểm  
-- Mức lương  
- Quản lý công ty
-- Xem danh sách công ty  
-- Duyệt thông tin doanh nghiệp  
-Thống kê / Báo cáo
-- Tổng số người dùng  
-- Tổng số việc làm  
-- Số lượng ứng tuyển  
-Quản lý tài khoản
-- Cập nhật thông tin công ty  
-- Upload logo công ty  
-Đăng tin tuyển dụng
-- Thêm / sửa / xóa bài đăng  
-- Nhập thông tin:
-  - Vị trí công việc  
-  - Mức lương  
-  - Mô tả công việc  
-  - Yêu cầu  
- Quản lý ứng viên
-- Xem danh sách ứng tuyển  
-- Xem CV ứng viên  
-- Lọc ứng viên theo tiêu chí  
- Ứng viên (User)
-Trang chủ
-- Hiển thị việc làm nổi bật  
-- Tìm kiếm nhanh  
-Tìm kiếm việc làm
-- Tìm theo từ khóa  
-- Lọc theo:
-  - Địa điểm  
-  - Ngành nghề  
-  - Mức lương  
-Chi tiết công việc
-- Xem mô tả công việc  
-- Xem thông tin công ty  
-Ứng tuyển
-- Nộp CV online  
-- Gửi thông tin cá nhân  
-Quản lý hồ sơ
-- Tạo / chỉnh sửa CV  
-- Upload file CV  
-Quản lý ứng tuyển
-- Xem danh sách đã ứng tuyển  
-- Theo dõi trạng thái đơn 
-Tài khoản cá nhân
-- Cập nhật thông tin  
-- Đổi mật khẩu  
-Công nghệ:
-- Frontend: HTML, CSS, JavaScript  
-- Backend: Laravel / NodeJS / PHP  
-- Database: MySQL  
-Chức năng nâng cao (tùy chọn)
-- Gợi ý việc làm theo người dùng  
-- Thông báo khi có việc phù hợp  
-- Chat giữa ứng viên và nhà tuyển dụng  
-- Lưu công việc yêu thích  
-- Tạo CV online  
+**Dự án:** Website Tìm Kiếm Việc Làm  
+**Nhóm:** Nhóm 13  
+**Phiên bản:** 1.0  
+**Ngày:** 08/04/2026
+
+---
+
+## 1. Tổng quan hệ thống
+
+Website tìm kiếm việc làm là nền tảng kết nối **Ứng viên** (người tìm việc) và **Nhà tuyển dụng** (doanh nghiệp tuyển dụng) dưới sự giám sát của **Quản trị viên**.
+
+### Các nhóm người dùng
+
+| Vai trò            | Mô tả                                              |
+| ------------------ | -------------------------------------------------- |
+| **Khách**          | Chưa đăng nhập, chỉ xem được trang chủ và tìm kiếm |
+| **Ứng viên**       | Tìm kiếm, xem chi tiết, nộp đơn, quản lý hồ sơ     |
+| **Nhà tuyển dụng** | Đăng tin, quản lý tin, xem ứng viên                |
+| **Quản trị viên**  | Duyệt tin, quản lý toàn bộ hệ thống                |
+
+---
+
+## 2. Danh sách chức năng toàn hệ thống
+
+### 2.1 Chức năng chung (tất cả người dùng)
+
+| Mã  | Chức năng                   | File SRS                 |
+| --- | --------------------------- | ------------------------ |
+| F01 | Xem trang chủ               | SRS_TRANG_CHU.md         |
+| F02 | Tìm kiếm việc làm           | SRS_TIM_KIEM_VIEC_LAM.md |
+| F03 | Xem chi tiết tin tuyển dụng | SRS_CHI_TIET_TIN_TD.md   |
+| F04 | Đăng ký tài khoản           | SRS_DANG_KY.md           |
+| F05 | Đăng nhập                   | SRS_DANG_NHAP.md         |
+| F06 | Đăng xuất                   | SRS_DANG_XUAT.md         |
+| F07 | Quên mật khẩu               | SRS_QUEN_MAT_KHAU.md     |
+
+### 2.2 Chức năng Ứng viên
+
+| Mã  | Chức năng              | File SRS                 |
+| --- | ---------------------- | ------------------------ |
+| F08 | Nộp đơn ứng tuyển      | SRS_NOP_DON_UNG_TUYEN.md |
+| F09 | Lưu việc làm yêu thích | SRS_LUU_VIEC_LAM.md      |
+| F10 | Xem lịch sử ứng tuyển  | SRS_LICH_SU_UNG_TUYEN.md |
+| F11 | Quản lý hồ sơ cá nhân  | SRS_QUAN_LY_HO_SO.md     |
+
+### 2.3 Chức năng Nhà tuyển dụng
+
+| Mã  | Chức năng             | File SRS                |
+| --- | --------------------- | ----------------------- |
+| F12 | Đăng tin tuyển dụng   | SRS_DANG_TIN_TD.md      |
+| F13 | Quản lý tin đã đăng   | SRS_QUAN_LY_TIN_DANG.md |
+| F14 | Xem & tải CV ứng viên | SRS_XEM_UNGVIEN.md      |
+
+### 2.4 Chức năng Quản trị viên
+
+| Mã  | Chức năng              | File SRS                |
+| --- | ---------------------- | ----------------------- |
+| F15 | Dashboard tổng quan    | SRS_ADMIN_DASHBOARD.md  |
+| F16 | Duyệt tin tuyển dụng   | SRS_ADMIN_DUYET_TIN.md  |
+| F17 | Quản lý ứng viên       | SRS_ADMIN_QL_UNGVIEN.md |
+| F18 | Quản lý nhà tuyển dụng | SRS_ADMIN_QL_NHATD.md   |
+| F19 | Quản lý danh mục       | SRS_ADMIN_QL_DANHMUC.md |
+| F20 | Quản lý đơn ứng tuyển  | SRS_ADMIN_QL_DONTD.md   |
+| F21 | Thống kê hệ thống      | SRS_ADMIN_THONGKE.md    |
+
+---
+
+## 3. Ma trận phân quyền
+
+| Chức năng             | Khách | Ứng viên | Nhà tuyển dụng | Admin |
+| --------------------- | ----- | -------- | -------------- | ----- |
+| Xem trang chủ         | ✅    | ✅       | ✅             | ✅    |
+| Tìm kiếm việc làm     | ✅    | ✅       | ✅             | ✅    |
+| Xem chi tiết tin      | ✅    | ✅       | ✅             | ✅    |
+| Đăng ký / Đăng nhập   | ✅    | ❌       | ❌             | ❌    |
+| Nộp đơn ứng tuyển     | ❌    | ✅       | ❌             | ❌    |
+| Lưu việc làm          | ❌    | ✅       | ❌             | ❌    |
+| Xem lịch sử ứng tuyển | ❌    | ✅       | ❌             | ❌    |
+| Quản lý hồ sơ         | ❌    | ✅       | ✅             | ❌    |
+| Đăng tin tuyển dụng   | ❌    | ❌       | ✅             | ❌    |
+| Quản lý tin đã đăng   | ❌    | ❌       | ✅             | ✅    |
+| Xem ứng viên          | ❌    | ❌       | ✅             | ✅    |
+| Duyệt tin             | ❌    | ❌       | ❌             | ✅    |
+| Quản lý người dùng    | ❌    | ❌       | ❌             | ✅    |
+| Thống kê              | ❌    | ❌       | ❌             | ✅    |
+
+---
+
+## 4. Kiến trúc hệ thống
+
+```
+┌─────────────────────────────────────────────────┐
+│                   FRONTEND                       │
+│  public/*.php (Giao diện PHP render)             │
+│  public/js/*.js (Logic phía client)              │
+│  public/assets/css/tailwind.css                  │
+└────────────────────┬────────────────────────────┘
+                     │ Fetch / AJAX
+┌────────────────────▼────────────────────────────┐
+│                REST API LAYER                    │
+│  public/api/*.php (Endpoint xử lý request)      │
+│  src/Controllers/ (Business logic)              │
+│  src/Middleware/ (Xác thực + phân quyền)        │
+└────────────────────┬────────────────────────────┘
+                     │ SQL
+┌────────────────────▼────────────────────────────┐
+│                DATA LAYER                        │
+│  src/Models/ (Truy vấn database)                │
+│  src/Services/ (Logic dịch vụ)                  │
+│  MySQL: database vieclamphp                     │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Quy ước chung
+
+| Quy ước      | Mô tả                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| Xác thực     | JWT Token lưu trong `localStorage`, kiểm tra qua `AuthMiddleware`                                          |
+| API response | Luôn trả về `{ success: bool, data/message: ... }`                                                         |
+| Mã HTTP      | 200 thành công, 400 dữ liệu sai, 401 chưa xác thực, 403 không có quyền, 404 không tìm thấy, 500 lỗi server |
+| Mật khẩu     | Hash bằng `password_hash()` / `password_verify()` của PHP                                                  |
+| Upload file  | Lưu tại `public/uploads/`, kiểm tra định dạng + dung lượng phía server                                     |
+| Phân trang   | Mặc định 10 bản ghi / trang, tham số `?page=N&limit=10`                                                    |
