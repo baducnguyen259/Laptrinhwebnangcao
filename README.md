@@ -197,11 +197,7 @@ WEBKIEMTHU/
 │ taikhoan (UNIQUE)    │     │ email (UNIQUE)       │
 │ matkhau              │     │ matkhau              │
 │ ngaytao              │     │ sdt                  │
-└──────────────────────┘     │ diachi               │
-                             │ gioitinh             │
-                             │ ngaysinh             │
-                             │ avatar               │
-                             │ ngaytao              │
+└──────────────────────┘
                              └──────────────────────┘
 
 ┌──────────────────────┐     ┌──────────────────────┐
